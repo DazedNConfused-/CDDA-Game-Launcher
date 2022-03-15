@@ -42,7 +42,7 @@ jobs:
         which python
         python --version
         pip --version
-        pip install SQLAlchemy alembic PyQt5 PyInstaller html5lib cssselect arrow rarfile Babel pypiwin32 pywinutils Markdown Werkzeug
+        pip install SQLAlchemy alembic PyQt5 PyInstaller html5lib cssselect arrow rarfile Babel pypiwin32 pywinutils Markdown Werkzeug httpx
     - name: Install dependencies
       shell: bash -l {0}
       run: |
