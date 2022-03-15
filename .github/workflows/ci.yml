@@ -8,11 +8,13 @@ on:
 
 jobs:
   build:
-
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [windows-latest]
+        include:
+        - os: windows-latest
+          path: ~\AppData\Local\pip\Cache
         python-version: ['3.9']
 
     steps:
@@ -24,6 +26,17 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
+    - name: Get pip cache dir
+      id: pip-cache
+      run: |
+        echo "::set-output name=dir::$(pip cache dir)"
+    - name: pip cache
+      uses: actions/cache@v2
+      with:
+        path: ${{ steps.pip-cache.outputs.dir }}
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
     - name: Set up Python
       shell: bash -l {0}
       env:
