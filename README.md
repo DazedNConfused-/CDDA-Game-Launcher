@@ -2,8 +2,9 @@
 
 A [Cataclysm: Dark Days Ahead](https://cataclysmdda.org/) launcher with additional features.
 
-![Develop Build Status](https://github.com/DazedNConfused-/CDDA-Game-Launcher/actions/workflows/build.yml/badge.svg?branch=develop)
-![GitHub master branch checks state](https://img.shields.io/github/checks-status/DazedNConfused-/CDDA-Game-Launcher/master?label=master)
+![GitHub Workflow Status (master)](https://img.shields.io/github/workflow/status/DazedNConfused-/CDDA-Game-Launcher/build/master?label=master)
+![GitHub Workflow Status (develop)](https://img.shields.io/github/workflow/status/DazedNConfused-/CDDA-Game-Launcher/build/develop?label=develop)
+
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/DazedNConfused-/CDDA-Game-Launcher)
 ![GitHub all releases](https://img.shields.io/github/downloads/DazedNConfused-/CDDA-Game-Launcher/total)
 [![GitHub forks](https://img.shields.io/github/forks/DazedNConfused-/CDDA-Game-Launcher)](https://github.com/DazedNConfused-/CDDA-Game-Launcher/network)
