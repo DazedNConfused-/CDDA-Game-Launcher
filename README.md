@@ -40,7 +40,7 @@ No planed features, only maintenance and bugfixes in the short term. Although ha
 
 ### What happened to the previous CDDA Game Launcher?
 
-It has become unmaintained. Nevertheless, praise and gratitude go to [remroy](https://github.com/remyroy) & [the rest of contributors](https://github.com/remyroy/CDDA-Game-Launcher/graphs/contributors) for their work on the launcher thus far, and for giving such a useful tool free of charge to the CDDA community.
+It has become unmaintained. Nevertheless, praise and gratitude go to [remyroy](https://github.com/remyroy) & [the rest of contributors](https://github.com/remyroy/CDDA-Game-Launcher/graphs/contributors) for their work on the launcher thus far, and for giving such a useful tool free of charge to the CDDA community.
 
 ### Where is my previous version?
 
