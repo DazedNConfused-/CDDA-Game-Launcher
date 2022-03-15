@@ -1,4 +1,4 @@
-name: ci
+name: build
 
 # inspired from https://github.com/wkentaro/labelme/actions/runs/255102432/workflow
 
