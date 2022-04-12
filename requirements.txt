@@ -16,3 +16,4 @@ pypiwin32
 pywin32
 httpx
 pylzma
+requests
