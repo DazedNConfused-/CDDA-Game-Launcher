@@ -3660,6 +3660,7 @@ class ProgressCopyTree(QTimer):
         self.analysing = False
         self.copying = False
         self.copy_completed = False
+        self.scale_factor = 0 # Number of bits to shift file size right so we don't overflow the QProgressBar
 
     def step(self):
         if self.analysing:
@@ -3713,7 +3714,8 @@ class ProgressCopyTree(QTimer):
                             self.copying_size_label = copying_size_label
 
                             progress_bar = QProgressBar()
-                            progress_bar.setRange(0, self.total_copy_size)
+                            self.scale_factor = max(0,int(self.total_copy_size.bit_length()) - 31) 
+                            progress_bar.setRange(0, self.total_copy_size >> self.scale_factor) 
                             progress_bar.setValue(0)
                             self.status_bar.addWidget(progress_bar)
                             self.progress_bar = progress_bar
@@ -3769,7 +3771,7 @@ class ProgressCopyTree(QTimer):
                     self.destination_file.write(buf)
 
                     self.copied_size += buf_len
-                    self.progress_bar.setValue(self.copied_size)
+                    self.progress_bar.setValue(self.copied_size >> self.scale_factor) 
 
                     self.copy_speed_count += 1
 
