@@ -51,6 +51,7 @@ class SoundpacksTab(QTabWidget):
 
         self.soundpacks = []
         self.soundpacks_model = None
+        self.selected_size = -1 
 
         self.installing_new_soundpack = False
         self.downloading_new_soundpack = False
@@ -389,6 +390,11 @@ class SoundpacksTab(QTabWidget):
                 self.downloading_progress_bar = progress_bar
                 progress_bar.setMinimum(0)
 
+                self.selected_size = -1
+                if 'size' in selected_info:
+                    self.selected_size = selected_info['size']
+                    self.downloading_progress_bar.setMaximum(self.selected_size)
+
                 self.download_last_read = datetime.utcnow()
                 self.download_last_bytes_read = 0
                 self.download_speed_count = 0
@@ -684,14 +690,19 @@ class SoundpacksTab(QTabWidget):
         self.downloading_file.write(self.download_http_reply.readAll())
 
     def download_dl_progress(self, bytes_read, total_bytes):
-        self.downloading_progress_bar.setMaximum(total_bytes)
+        if total_bytes != -1:
+            self.downloading_progress_bar.setMaximum(total_bytes)
         self.downloading_progress_bar.setValue(bytes_read)
 
         self.download_speed_count += 1
 
+        if total_bytes == -1:
+            size = self.selected_size
+        else:
+            size = total_bytes
         self.downloading_size_label.setText(
             '{bytes_read}/{total_bytes}'
-            .format(bytes_read=sizeof_fmt(bytes_read), total_bytes=sizeof_fmt(total_bytes))
+            .format(bytes_read=sizeof_fmt(bytes_read), total_bytes=sizeof_fmt(size))
         )
 
         if self.download_speed_count % 5 == 0:
