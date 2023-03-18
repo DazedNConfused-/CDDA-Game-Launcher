@@ -2,6 +2,7 @@
 #
 # SPDX-License-Identifier: MIT
 
+from cddagl.platform_api import is_windows
 def fix_pywin32_loading():
     try:
         import pywintypes
@@ -11,7 +12,8 @@ def fix_pywin32_loading():
         sys.path.append(r'win32\lib')
         import pywin32_bootstrap
 
-fix_pywin32_loading()
+if is_windows():
+    fix_pywin32_loading()
 
 import cddagl.launcher
 cddagl.launcher.run_cddagl()

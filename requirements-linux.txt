@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2015-2021 Rémy Roy
+#
+# SPDX-License-Identifier: MIT
+
+SQLAlchemy
+alembic
+PyQt5
+PyQt5-sip
+arrow
+rarfile
+Babel
+markdown2
+Werkzeug
+httpx
+pylzma
+requests
+psutil
