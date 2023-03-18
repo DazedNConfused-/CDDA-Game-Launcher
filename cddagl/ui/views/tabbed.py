@@ -23,7 +23,7 @@ from PyQt5.QtWidgets import (
     QAction, QDialog, QTabWidget, QCheckBox, QMessageBox, QMenu
 )
 from PyQt5.QtGui import QDesktopServices
-from pywintypes import error as PyWinError
+from cddagl.platform_api import PyWinError, is_windows
 
 import cddagl.constants as cons
 from cddagl import __version__ as version
@@ -39,7 +39,7 @@ from cddagl.ui.views.settings import SettingsTab
 from cddagl.ui.views.soundpacks import SoundpacksTab
 from cddagl.ui.views.tilesets import TilesetsTab
 from cddagl.ui.views.statistics import StatisticsTab
-from cddagl.win32 import SimpleNamedPipe
+from cddagl.platform_api import SimpleNamedPipe
 
 logger = logging.getLogger('cddagl')
 
@@ -69,7 +69,7 @@ class TabbedWindow(QMainWindow):
 
         self.setWindowTitle(title)
 
-        if not config_true(get_config_value('allow_multiple_instances',
+        if is_windows() and not config_true(get_config_value('allow_multiple_instances',
             'False')):
             self.init_named_pipe()
 

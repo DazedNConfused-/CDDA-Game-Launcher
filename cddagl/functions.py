@@ -8,8 +8,11 @@ import re
 import traceback
 from io import StringIO
 
-import winutils
-from pywintypes import com_error
+from cddagl.platform_api.utils import is_windows
+
+if is_windows():
+    import winutils
+    from pywintypes import com_error
 
 import cddagl
 from cddagl.i18n import proxy_gettext as _

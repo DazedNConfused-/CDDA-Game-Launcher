@@ -27,12 +27,15 @@ from cddagl.i18n import (
 from cddagl.sql.functions import init_config, get_config_value, config_true
 from cddagl.ui.views.dialogs import ExceptionWindow
 from cddagl.ui.views.tabbed import TabbedWindow
-from cddagl.win32 import get_ui_locale, SingleInstance, write_named_pipe
+from cddagl.platform_api import get_ui_locale, SingleInstance, write_named_pipe, is_windows
 
 logger = logging.getLogger('cddagl')
 
 
 def init_single_instance():
+    if not is_windows():
+        return None
+
     if not config_true(get_config_value('allow_multiple_instances', 'False')):
         single_instance = SingleInstance()
 
