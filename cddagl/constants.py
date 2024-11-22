@@ -45,11 +45,11 @@ BASE_ASSETS = {
     'Tiles': {
         'x64': {
             'Platform': 'x64',
-            'Graphics': 'tiles'
+            'Graphics': 'with-graphics-and-sounds'
         },
         'x86': {
             'Platform': 'x32',
-            'Graphics': 'tiles'
+            'Graphics': 'with-graphics-and-sounds'
         }
     }
 }
